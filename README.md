@@ -2,7 +2,7 @@
 
 PortalUndangan: 8 undangan digital dengan karakter berbeda — pernikahan, lamaran, khitanan, aqiqah, ulang tahun, wisuda, reuni, dan korporat.
 
-**Demo live:** https://www.pintuweb.com/undangan-digital
+**Demo live:** https://www.pintuweb.id/undangan-digital
 
 ![Tangkapan layar PortalUndangan](public/og.jpg)
 
@@ -47,4 +47,4 @@ Buka http://localhost:3000. Untuk build produksi: `npm run build` lalu `npm star
 
 ---
 
-Dibuat oleh [PintuWeb](https://www.pintuweb.com), jasa pembuatan website.
+Dibuat oleh [PintuWeb](https://www.pintuweb.id), jasa pembuatan website.

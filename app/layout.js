@@ -4,10 +4,10 @@ import { Marcellus, Mulish } from 'next/font/google';
 const marcellus = Marcellus({ subsets: ['latin'], variable: '--font-marcellus', weight: '400' });
 const mulish = Mulish({ subsets: ['latin'], variable: '--font-mulish' });
 
-const __jsonld = {"@context":"https://schema.org","@type":"CollectionPage","name":"PortalUndangan","description":"Koleksi 8 undangan digital","url":"https://www.pintuweb.com/undangan-digital","isPartOf":{"@type":"WebSite","name":"PintuWeb","url":"https://www.pintuweb.com"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PintuWeb","item":"https://www.pintuweb.com"},{"@type":"ListItem","position":2,"name":"Undangan Digital","item":"https://www.pintuweb.com/undangan-digital"}]}};
+const __jsonld = {"@context":"https://schema.org","@type":"CollectionPage","name":"PortalUndangan","description":"Koleksi 8 undangan digital","url":"https://www.pintuweb.id/undangan-digital","isPartOf":{"@type":"WebSite","name":"PintuWeb","url":"https://www.pintuweb.id"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PintuWeb","item":"https://www.pintuweb.id"},{"@type":"ListItem","position":2,"name":"Undangan Digital","item":"https://www.pintuweb.id/undangan-digital"}]}};
 
 export const metadata = {
-  metadataBase: new URL("https://www.pintuweb.com/undangan-digital"),
+  metadataBase: new URL("https://www.pintuweb.id/undangan-digital"),
   title: "PortalUndangan — Undangan Digital untuk Setiap Momen",
   description: "PortalUndangan: 8 undangan digital dengan karakter berbeda — pernikahan, lamaran, khitanan, aqiqah, ulang tahun, wisuda, reuni, dan korporat.",
   applicationName: "PortalUndangan",
@@ -15,11 +15,11 @@ export const metadata = {
   authors: [{ name: "PortalUndangan" }],
   creator: "PortalUndangan",
   publisher: "PortalUndangan",
-  alternates: { canonical: "https://www.pintuweb.com/undangan-digital" },
+  alternates: { canonical: "https://www.pintuweb.id/undangan-digital" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://www.pintuweb.com/undangan-digital",
+    url: "https://www.pintuweb.id/undangan-digital",
     siteName: "PortalUndangan",
     title: "PortalUndangan — Undangan Digital untuk Setiap Momen",
     description: "PortalUndangan: 8 undangan digital dengan karakter berbeda — pernikahan, lamaran, khitanan, aqiqah, ulang tahun, wisuda, reuni, dan korporat.",
