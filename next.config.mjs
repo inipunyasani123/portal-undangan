@@ -4,7 +4,7 @@
 const nextConfig = {
   basePath: '/undangan-digital',
   async redirects() {
-    // Alamat lama portal-undangan-eta.vercel.app di luar basePath -> alamat utama.
+    // Alamat lama portal-undangan.pintuweb.id di luar basePath -> alamat utama.
     return [
       { source: '/', destination: 'https://www.pintuweb.id/undangan-digital', basePath: false, permanent: true },
       { source: '/:lama((?!undangan-digital(?:/|$)).+)', destination: 'https://www.pintuweb.id/undangan-digital', basePath: false, permanent: true },

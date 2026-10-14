@@ -14,14 +14,14 @@ Katalog undangan digital. Elegan dengan bingkai ganda, lencana segel lilin, dan 
 
 ## Varian yang dipamerkan (8)
 
-- [Undangan Aqiqah Digital](https://undangan-aqiqah-puce.vercel.app)
-- [Undangan Ulang Tahun Digital](https://undangan-birthday.vercel.app)
-- [Undangan Acara Korporat Digital](https://undangan-corporate-delta.vercel.app)
-- [Undangan Tunangan Digital](https://undangan-engagement.vercel.app)
-- [Undangan Khitanan Digital](https://undangan-khitanan-theta.vercel.app)
-- [Undangan Reuni Digital](https://undangan-reuni-livid.vercel.app)
-- [Undangan Pernikahan Digital](https://undangan-wedding-eight.vercel.app)
-- [Undangan Wisuda Digital](https://undangan-wisuda-ten.vercel.app)
+- [Undangan Aqiqah Digital](https://undangan-aqiqah.pintuweb.id)
+- [Undangan Ulang Tahun Digital](https://undangan-birthday.pintuweb.id)
+- [Undangan Acara Korporat Digital](https://undangan-corporate.pintuweb.id)
+- [Undangan Tunangan Digital](https://undangan-engagement.pintuweb.id)
+- [Undangan Khitanan Digital](https://undangan-khitanan.pintuweb.id)
+- [Undangan Reuni Digital](https://undangan-reuni.pintuweb.id)
+- [Undangan Pernikahan Digital](https://undangan-wedding.pintuweb.id)
+- [Undangan Wisuda Digital](https://undangan-wisuda.pintuweb.id)
 
 ## Halaman
 
