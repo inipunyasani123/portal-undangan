@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, ArrowDown, ArrowUpRight, MessageCircle, Heart, MailOpen, Timer, Images, MapPin, Music, MessagesSquare, Gift, Users, ChevronDown, PenLine, Send, PartyPopper } from 'lucide-react';
 import { templates } from './components/templates-data';
+import { LANJUT, GALERI_LAIN, PINTUWEB } from './components/pintuweb';
 
-const WA = 'https://wa.me/6285190931399?text=Halo%2C%20saya%20ingin%20memesan%20undangan%20digital%20di%20PortalUndangan';
+const WA = 'https://wa.me/6285190931399?text=Halo%2C%20saya%20ingin%20memesan%20undangan%20digital%20di%20PintuWeb';
 
 const FITUR = [
   { icon: MailOpen, title: 'Amplop Pembuka', desc: 'Nama tamu tersapa lebih dulu. Tiap tamu mendapat tautan bernama sendiri, dibuat lewat halaman /kirim.' },
@@ -31,7 +32,7 @@ const TANYA = [
   { q: 'Apakah nama, foto, dan cerita bisa diganti sesuai acara saya?', a: 'Tentu. Semua teks, foto, warna aksen, musik, dan detail acara disesuaikan sepenuhnya dengan momenmu. Tema hanyalah kanvas awalnya.' },
   { q: 'Apakah tamu bisa konfirmasi kehadiran?', a: 'Bisa. Formulir RSVP (atau pendaftaran peserta untuk acara kantor) dan buku ucapan bisa dipasang di tema mana pun. Contoh di galeri ini berjalan dalam mode demo, jadi isian tidak disimpan.' },
   { q: 'Bagaimana cara membagikan undangannya?', a: 'Setiap tema punya halaman /kirim: ketik daftar tamu, lalu tiap nama mendapat tautan yang menyapanya di sampul beserta pesan WhatsApp siap kirim. Tamu tinggal membuka, tanpa unduh aplikasi apa pun.' },
-  { q: 'Apakah ada revisi jika ada yang keliru?', a: 'Ada. Kamu memeriksa undangan sebelum dibagikan, dan kesalahan teks atau detail kami perbaiki. Jatah revisinya kami sampaikan di awal, bersama estimasi waktu.' },
+  { q: 'Apakah ada revisi jika ada yang keliru?', a: 'Ada. Kamu memeriksa undangan sebelum dibagikan, dan kesalahan teks atau detail kami perbaiki. Paket Undangan Digital mencakup 1× revisi data; paket Situs Acara & Undangan Custom 2× revisi.' },
 ];
 
 export default function PortalUndangan() {
@@ -55,7 +56,10 @@ export default function PortalUndangan() {
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
           <a href="#top" className="flex items-center gap-2.5 font-display text-xl">
             <span className="segel grid h-9 w-9 place-items-center rounded-full text-creamu"><Mail size={15} /></span>
-            PortalUndangan
+            <span className="flex flex-col leading-none">
+              PintuWeb{' '}
+              <span className="mt-1 font-sans text-[9px] font-semibold uppercase tracking-[0.3em] text-goldu">Undangan Digital</span>
+            </span>
           </a>
           <div className="hidden items-center gap-6 text-sm font-semibold text-mutedu md:flex" role="navigation" aria-label="Navigasi">
             <a href="#koleksi" className="transition hover:text-roseu">Koleksi</a>
@@ -88,7 +92,7 @@ export default function PortalUndangan() {
           {/* Angka kecil yang meyakinkan */}
           <div className="mx-auto mt-10 flex max-w-md items-center justify-center divide-x divide-goldu/30 border-y border-goldu/25 py-4">
             {[
-              { v: '8', l: 'Tema Eksklusif' },
+              { v: '8', l: 'Tema Berbeda' },
               { v: '7', l: 'Musik Latar' },
               { v: '360 px', l: 'Ramah Layar Kecil' },
             ].map((s) => (
@@ -265,7 +269,10 @@ export default function PortalUndangan() {
           <div>
             <p className="flex items-center justify-center gap-2 font-display text-lg text-creamu sm:justify-start">
               <span className="segel grid h-7 w-7 place-items-center rounded-full text-creamu"><Mail size={12} /></span>
-              PortalUndangan
+              <span className="flex flex-col text-left leading-none">
+                PintuWeb{' '}
+                <span className="mt-1 font-sans text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d6b77f]">Undangan Digital</span>
+              </span>
             </p>
             <p className="mt-2 text-sm leading-relaxed">Undangan digital untuk setiap momen — dibuka seperti amplop, dibagikan lewat satu tautan.</p>
           </div>
@@ -286,8 +293,29 @@ export default function PortalUndangan() {
             </ul>
           </div>
         </div>
-        <p className="mt-10 border-t border-creamu/10 pt-5 text-center text-xs text-creamu/70">
-          © {new Date().getFullYear()} PortalUndangan · bagian dari PintuWeb — merangkai undangan sejak dalam pikiran.
+        {/* Lanjut di PintuWeb: harga, layanan, semua demo, dan galeri lain di situs utama */}
+        <nav aria-labelledby="lanjut-pintuweb" className="mx-auto mt-10 max-w-6xl border-t border-creamu/10 pt-8 text-center text-sm sm:text-left">
+          <p id="lanjut-pintuweb" className="ornamen text-[10px] uppercase text-[#d6b77f]">Lanjut di PintuWeb</p>
+          <ul className="mt-4 flex flex-wrap justify-center gap-3 sm:justify-start">
+            {LANJUT.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="inline-flex items-center gap-1.5 rounded-full border border-[#d6b77f]/40 px-4 py-1.5 text-xs font-semibold text-creamu transition hover:border-roseu hover:bg-roseu">
+                  {l.label} <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="ornamen mt-6 text-[10px] uppercase text-[#d6b77f]">Galeri lain</p>
+          <ul className="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-2 sm:justify-start">
+            {GALERI_LAIN.map((g) => (
+              <li key={g.path}>
+                <a href={`${PINTUWEB}/${g.path}`} className="underline decoration-creamu/25 underline-offset-4 transition hover:text-creamu hover:decoration-[#d6b77f]">{g.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <p className="mx-auto mt-8 max-w-6xl border-t border-creamu/10 pt-5 text-center text-xs text-creamu/70">
+          © {new Date().getFullYear()} PintuWeb · Galeri Undangan Digital — merangkai undangan sejak dalam pikiran.
         </p>
       </footer>
     </div>
