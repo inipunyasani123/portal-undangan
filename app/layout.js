@@ -1,16 +1,31 @@
 import './globals.css';
-import { Marcellus, Mulish } from 'next/font/google';
-import { templates } from './components/templates-data';
+import { Marcellus } from 'next/font/google';
+import { templates, slugOf } from './components/templates-data';
 
 const marcellus = Marcellus({ subsets: ['latin'], variable: '--font-marcellus', weight: '400' });
-const mulish = Mulish({ subsets: ['latin'], variable: '--font-mulish' });
 
 // Merek di hasil pencarian & pratinjau tautan = PintuWeb. Jumlah tema dihitung dari data, bukan ditulis tangan.
 const URL_PORTAL = 'https://www.pintuweb.id/undangan-digital';
 const TITLE = `Contoh Undangan Digital: ${templates.length} Tema Siap Coba | PintuWeb`;
 const DESCRIPTION = `${templates.length} undangan digital berbentuk website dengan karakter berbeda: pernikahan, lamaran, khitanan, aqiqah, ulang tahun, wisuda, reuni, dan acara kantor.`;
 
-const __jsonld = {"@context":"https://schema.org","@type":"CollectionPage","name":TITLE,"description":DESCRIPTION,"url":URL_PORTAL,"inLanguage":"id-ID","isPartOf":{"@type":"WebSite","name":"PintuWeb","url":"https://www.pintuweb.id"},"publisher":{"@type":"Organization","name":"PintuWeb","url":"https://www.pintuweb.id"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PintuWeb","item":"https://www.pintuweb.id"},{"@type":"ListItem","position":2,"name":"Undangan Digital","item":URL_PORTAL}]}};
+// CollectionPage + daftar temanya (ItemList) + jejak. Data dari templates-data, jadi ikut bertambah sendiri.
+const __jsonld = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: TITLE,
+  description: DESCRIPTION,
+  url: URL_PORTAL,
+  inLanguage: "id-ID",
+  isPartOf: { "@type": "WebSite", name: "PintuWeb", url: "https://www.pintuweb.id" },
+  publisher: { "@type": "Organization", name: "PintuWeb", url: "https://www.pintuweb.id" },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: templates.length,
+    itemListElement: templates.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: `Undangan ${t.momen} (${slugOf(t)})`, url: t.url })),
+  },
+  breadcrumb: { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "PintuWeb", item: "https://www.pintuweb.id" }, { "@type": "ListItem", position: 2, name: "Undangan Digital", item: URL_PORTAL }] },
+};
 
 export const metadata = {
   metadataBase: new URL(URL_PORTAL),
@@ -46,11 +61,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={`${marcellus.variable} ${mulish.variable}`}>
+    <html lang="id" className={marcellus.variable}>
       <body className="antialiased">
-        <main>{children}</main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
-        </body>
+        {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
+      </body>
     </html>
   );
 }

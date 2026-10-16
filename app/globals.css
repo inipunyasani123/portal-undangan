@@ -2,13 +2,14 @@
 
 @theme {
   --font-display: var(--font-marcellus), Georgia, serif;
-  --font-sans: var(--font-mulish), system-ui, sans-serif;
+  /* Teks badan: tumpukan font sistem gaya Apple, sama dengan situs utama PintuWeb (tanpa unduhan font) */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   --color-creamu: #faf6ee;
   --color-inku: #3b3129;
   --color-roseu: #a2505d;
   --color-goldu: #8a6930;
-  --color-mutedu: #72685d;
+  --color-mutedu: #6b6157;
 }
 
 html { scroll-behavior: smooth; }
@@ -22,12 +23,21 @@ body {
 
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.01em; }
 
+/* Tautan lompat ke konten: tersembunyi sampai difokus papan ketik */
+.lewati {
+  position: fixed; left: 1rem; top: 0.75rem; z-index: 60; transform: translateY(-160%);
+  border-radius: 9999px; background: var(--color-roseu); color: var(--color-creamu);
+  padding: 0.5rem 1rem; font-weight: 700; font-size: 0.875rem; box-shadow: 0 6px 18px -6px rgba(59, 49, 41, 0.5);
+}
+.lewati:focus { transform: none; }
+main:focus { outline: none; }
+
 /* Bingkai ganda undangan */
 .bingkai { border: 1px solid rgba(179, 137, 63, 0.55); outline: 1px solid rgba(179, 137, 63, 0.3); outline-offset: 5px; }
 
 /* Segel lilin */
 .segel {
-  background: radial-gradient(circle at 35% 30%, #d08a95, var(--color-roseu) 55%, #8f4e59);
+  background: radial-gradient(circle at 35% 30%, #c27986, var(--color-roseu) 55%, #8f4e59);
   box-shadow: 0 4px 12px -3px rgba(143, 78, 89, 0.6), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -36,10 +46,32 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   .ornamen { color: var(--color-goldu); letter-spacing: 0.6em; }
 }
 
-@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.rise { animation: rise 0.8s ease-out both; }
+/* Satu tautan per kartu: ::after menutupi kartu, cincin fokusnya digambar di seluruh kartu */
+.tautan-kartu:focus-visible { outline: none; }
+.tautan-kartu:focus-visible::after { outline: 2px solid var(--color-roseu); outline-offset: 8px; }
+
+/* Masuk halus untuk elemen pendukung hero (judul tetap langsung tampil demi LCP) */
+@keyframes naik { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.naik { animation: naik 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.naik-2 { animation-delay: 0.15s; }
 
 @keyframes floaty { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
 .floaty { animation: floaty 5s ease-in-out infinite; }
 
-:focus-visible { outline: 2px solid var(--color-roseu); outline-offset: 3px; border-radius: 8px; }
+/* FAQ <details>: buka-tutup halus di peramban yang mendukung */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  .tanya::details-content { height: 0; overflow: clip; transition: height 0.3s ease, content-visibility 0.3s allow-discrete; }
+  .tanya[open]::details-content { height: auto; }
+}
+
+/* Kartu yang berpindah saat disaring (View Transitions) */
+::view-transition-group(*) { animation-duration: 0.4s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+
+:focus-visible { outline: 2px solid var(--color-roseu); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .floaty { animation: none !important; }
+}

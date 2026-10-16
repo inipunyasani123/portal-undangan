@@ -8,3 +8,6 @@ export const templates = [
   { name: 'Reuni', momen: 'Reuni', terjual: 1, description: 'Scrapbook nostalgia — polaroid, stempel, dan kenangan sekolah.', image: '/undangan-digital/images/u7.webp', url: 'https://undangan-reuni.pintuweb.id', kategori: 'Perayaan' },
   { name: 'Corporate', momen: 'Acara Kantor', terjual: 6, description: 'Situs konferensi dua hari: agenda bertab, pembicara, slot sponsor, dan pendaftaran peserta.', image: '/undangan-digital/images/u8.webp', url: 'https://undangan-corporate.pintuweb.id', kategori: 'Formal' },
 ];
+
+/** "https://undangan-wedding.pintuweb.id" -> "wedding" (sama dengan slug demo di PintuWeb/app/lib/demos.ts). */
+export const slugOf = (t) => new URL(t.url).hostname.split('.')[0].replace(/^undangan-/, '');
