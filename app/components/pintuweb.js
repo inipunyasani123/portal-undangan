@@ -13,16 +13,16 @@ export const wa = (teks) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponen
  */
 export const PAKET = {
   nama: 'Undangan Digital',
-  mulai: 'Rp75 ribu',
-  sampai: 'Rp225 ribu',
+  mulai: 'Rp50 ribu',
+  sampai: 'Rp200 ribu',
   waktu: '1 hari kerja',
   aktifBulan: 12,
   revisi: '1× revisi data',
 };
 export const PAKET_ACARA = {
   nama: 'Situs Acara & Undangan Custom',
-  mulai: 'Rp500 ribu',
-  sampai: 'Rp1,25 juta',
+  mulai: 'Rp300 ribu',
+  sampai: 'Rp1 juta',
   waktu: '2–4 hari kerja',
   revisi: '2× revisi',
 };
