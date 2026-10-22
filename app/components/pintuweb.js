@@ -27,7 +27,7 @@ export const PAKET_ACARA = {
   revisi: '2× revisi',
 };
 
-/** Delapan galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). */
+/** Galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). */
 export const GALERI = [
   { path: 'landing-page', label: 'Landing Page' },
   { path: 'link-in-bio', label: 'Link in Bio' },
@@ -37,6 +37,8 @@ export const GALERI = [
   { path: 'website-reservasi', label: 'Website Reservasi' },
   { path: 'website-properti', label: 'Website Properti' },
   { path: 'aplikasi-to-do', label: 'Aplikasi To-Do' },
+  { path: 'toko-online', label: 'Toko Online' },
+  { path: 'menu-digital', label: 'Menu Digital' },
 ];
 
 export const GALERI_LAIN = GALERI.filter((g) => g.path !== 'undangan-digital');
