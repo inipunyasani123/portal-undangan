@@ -10,30 +10,30 @@ const WA = wa('Halo PintuWeb, saya ingin memesan undangan digital.');
 const N = templates.length;
 
 const FITUR = [
-  { icon: MailOpen, title: 'Amplop Pembuka', desc: 'Nama tamu tersapa lebih dulu. Tiap tamu mendapat tautan bernama sendiri, dibuat lewat halaman /kirim.' },
-  { icon: Timer, title: 'Hitung Mundur', desc: 'Countdown menuju hari-H yang membuat tamu ikut menanti.' },
-  { icon: Images, title: 'Galeri Momen', desc: 'Foto-foto terbaik kalian tersusun dalam galeri yang elegan.' },
-  { icon: MapPin, title: 'Peta Lokasi', desc: 'Google Maps tertanam — tamu tinggal ketuk untuk berangkat.' },
-  { icon: Music, title: 'Musik Latar', desc: 'Lagu pilihanmu mengiringi setiap gulir layar — dengan tombol jeda untuk tamu.' },
-  { icon: Users, title: 'RSVP Kehadiran', desc: 'Tamu konfirmasi hadir dalam satu ketukan; kamu tinggal menghitung kursi.' },
-  { icon: MessagesSquare, title: 'Ucapan & Doa', desc: 'Buku tamu digital yang menyimpan setiap doa terbaik.' },
-  { icon: Gift, title: 'Amplop Digital', desc: 'Kado tanpa repot — nomor rekening & e-wallet tersaji sopan.' },
+  { icon: MailOpen, title: 'Amplop Pembuka', desc: 'Tamu disapa dengan namanya. Setiap tamu dapat tautan sendiri.' },
+  { icon: Timer, title: 'Hitung Mundur', desc: 'Hitung mundur menuju hari-H, supaya tamu ikut menanti.' },
+  { icon: Images, title: 'Galeri Momen', desc: 'Foto terbaik kalian tersusun rapi dalam galeri.' },
+  { icon: MapPin, title: 'Peta Lokasi', desc: 'Lokasi tertanam di Google Maps. Tamu tinggal ketuk.' },
+  { icon: Music, title: 'Musik Latar', desc: 'Lagu pilihanmu mengiringi undangan. Tamu bisa menjedanya.' },
+  { icon: Users, title: 'Konfirmasi Hadir', desc: 'Tamu konfirmasi hadir dengan satu ketukan.' },
+  { icon: MessagesSquare, title: 'Ucapan & Doa', desc: 'Buku tamu digital untuk ucapan dan doa.' },
+  { icon: Gift, title: 'Amplop Digital', desc: 'Nomor rekening dan e-wallet untuk kado, tersaji sopan.' },
 ];
 
 const LANGKAH = [
-  { icon: Heart, no: 'I', title: 'Pilih Tema', desc: `Telusuri ${N} tema di koleksi, pilih yang paling terasa "kalian".` },
-  { icon: PenLine, no: 'II', title: 'Kirim Cerita', desc: 'Nama, tanggal, lokasi, foto, dan kisahmu — kirim lewat WhatsApp.' },
-  { icon: Send, no: 'III', title: 'Kami Rangkai', desc: 'Undangan kami rangkai dari ceritamu, lalu kamu periksa dulu sebelum dibagikan.' },
-  { icon: PartyPopper, no: 'IV', title: 'Sebarkan', desc: 'Ketik daftar tamu di halaman /kirim — tiap nama dapat tautan dan pesan WhatsApp siap kirim.' },
+  { icon: Heart, no: 'I', title: 'Pilih Tema', desc: `Pilih dari ${N} tema yang paling cocok.` },
+  { icon: PenLine, no: 'II', title: 'Kirim Cerita', desc: 'Kirim nama, tanggal, lokasi, dan foto lewat WhatsApp.' },
+  { icon: Send, no: 'III', title: 'Kami Rangkai', desc: 'Kami buat undanganmu. Kamu periksa dulu.' },
+  { icon: PartyPopper, no: 'IV', title: 'Sebarkan', desc: 'Masukkan daftar tamu, lalu kirim tautan lewat WhatsApp.' },
 ];
 
 const TANYA = [
-  { q: 'Berapa lama undangan selesai dibuat?', a: `Undangan dari tema di galeri ini biasanya selesai ${PAKET.waktu} setelah data acara lengkap; situs acara dengan desain khusus ${PAKET_ACARA.waktu}. Sampaikan tanggal acaramu lewat WhatsApp supaya jadwalnya pas.` },
-  { q: 'Berapa harganya?', a: `Undangan dari tema galeri ${PAKET.mulai}–${PAKET.sampai}, aktif ${PAKET.aktifBulan} bulan tanpa biaya perpanjangan. Untuk acara kantor, seminar, atau desain khusus, paket ${PAKET_ACARA.nama} ${PAKET_ACARA.mulai}–${PAKET_ACARA.sampai}.` },
-  { q: 'Apakah nama, foto, dan cerita bisa diganti sesuai acara saya?', a: 'Tentu. Semua teks, foto, warna aksen, musik, dan detail acara disesuaikan sepenuhnya dengan momenmu. Tema hanyalah kanvas awalnya.' },
-  { q: 'Apakah tamu bisa konfirmasi kehadiran?', a: 'Bisa. Formulir RSVP (atau pendaftaran peserta untuk acara kantor) dan buku ucapan bisa dipasang di tema mana pun. Contoh di galeri ini berjalan dalam mode demo, jadi isian tidak disimpan.' },
-  { q: 'Bagaimana cara membagikan undangannya?', a: 'Setiap tema punya halaman /kirim: ketik daftar tamu, lalu tiap nama mendapat tautan yang menyapanya di sampul beserta pesan WhatsApp siap kirim. Tamu tinggal membuka, tanpa unduh aplikasi apa pun.' },
-  { q: 'Apakah ada revisi jika ada yang keliru?', a: `Ada. Kamu memeriksa undangan sebelum dibagikan, dan kesalahan teks atau detail kami perbaiki. Paket ${PAKET.nama} mencakup ${PAKET.revisi}; paket ${PAKET_ACARA.nama} ${PAKET_ACARA.revisi}.` },
+  { q: 'Berapa lama undangan selesai?', a: `Undangan dari tema galeri selesai ${PAKET.waktu} setelah data lengkap. Situs acara kantor ${PAKET_ACARA.waktu}.` },
+  { q: 'Berapa harganya?', a: `Undangan digital ${PAKET.mulai}–${PAKET.sampai}, aktif ${PAKET.aktifBulan} bulan tanpa biaya perpanjangan. Situs acara (kantor, seminar, atau desain khusus) ${PAKET_ACARA.mulai}–${PAKET_ACARA.sampai}.` },
+  { q: 'Nama, foto, dan cerita bisa diganti?', a: 'Bisa. Teks, foto, warna, musik, dan detail acara kami sesuaikan dengan momenmu.' },
+  { q: 'Tamu bisa konfirmasi hadir?', a: 'Bisa. Formulir konfirmasi dan buku ucapan bisa dipasang di tema mana pun. Di contoh ini, isian tidak disimpan.' },
+  { q: 'Bagaimana cara membagikannya?', a: 'Tiap tamu dapat tautan bernama sendiri dan pesan WhatsApp siap kirim. Tamu tinggal membuka, tanpa unduh aplikasi.' },
+  { q: 'Kalau ada yang keliru, bisa direvisi?', a: `Bisa. Kamu memeriksa dulu sebelum dibagikan. Undangan digital mencakup ${PAKET.revisi}, situs acara ${PAKET_ACARA.revisi}.` },
 ];
 
 // Angka hero: jumlah tema dihitung dari data; waktu & masa aktif dari PAKET (PintuWeb packages.ts).
@@ -108,8 +108,8 @@ export default function PortalUndangan() {
             <h1 className="mt-3 font-display text-[2rem] leading-[1.12] sm:mt-5 sm:text-6xl">
               Setiap momen berharga,<br />layak <span className="italic text-roseu">diundang dengan indah</span>.
             </h1>
-            <p className="mx-auto mt-5 hidden max-w-xl text-mutedu sm:block">
-              {N} undangan digital dengan karakter berbeda — dari akad yang khidmat sampai pesta yang meriah. Dibuka seperti amplop, dibagikan lewat satu tautan.
+            <p className="mx-auto mt-4 max-w-xl text-mutedu sm:mt-5">
+              {N} undangan digital untuk pernikahan, ulang tahun, sampai acara kantor. Dibagikan lewat satu tautan, tanpa cetak.
             </p>
             <div className="naik naik-2">
               <a href="#koleksi" className="bingkai mt-4 inline-flex items-center gap-2 rounded-none bg-creamu px-8 py-3 sm:mt-9 sm:py-3.5 font-display text-sm tracking-wide text-inku transition hover:bg-goldu/10">
@@ -125,7 +125,7 @@ export default function PortalUndangan() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 hidden text-sm text-mutedu sm:block">Mulai <strong className="font-display text-base font-normal text-roseu">{PAKET.mulai}</strong>, aktif {PAKET.aktifBulan} bulan tanpa biaya perpanjangan.</p>
+              <p className="mt-4 text-sm text-mutedu">Undangan digital mulai <strong className="font-display text-base font-normal text-roseu">{PAKET.mulai}</strong>. Situs acara kantor mulai <strong className="font-display text-base font-normal text-roseu">{PAKET_ACARA.mulai}</strong>.</p>
             </div>
           </div>
           {/* Ponsel: strip tema yang bisa digeser, tepat di bawah tombol utama; tiap tema menaut ke kartunya (#slug) */}
@@ -163,8 +163,7 @@ export default function PortalUndangan() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
               <p className="ornamen text-[11px] uppercase tracking-[0.35em] sm:text-xs sm:tracking-[0.6em]">— Di dalam setiap amplop —</p>
-              <h2 id="judul-fitur" className="mt-3 font-display text-3xl sm:text-4xl">Lengkap sampai <span className="italic text-roseu">detail terkecil</span></h2>
-              <p className="mx-auto mt-4 max-w-xl text-mutedu">Delapan fitur yang membuat undangan digitalmu terasa hidup — bukan sekadar halaman berisi tanggal.</p>
+              <h2 id="judul-fitur" className="mt-3 font-display text-3xl sm:text-4xl">Apa saja <span className="italic text-roseu">di dalamnya</span></h2>
             </div>
             <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-4">
               {FITUR.map((f) => (
@@ -185,7 +184,7 @@ export default function PortalUndangan() {
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
               <p className="ornamen text-[11px] uppercase tracking-[0.35em] sm:text-xs sm:tracking-[0.6em]">— Dari cerita menjadi undangan —</p>
-              <h2 id="judul-cara" className="mt-3 font-display text-3xl sm:text-4xl">Empat bab <span className="italic text-roseu">menuju hari bahagia</span></h2>
+              <h2 id="judul-cara" className="mt-3 font-display text-3xl sm:text-4xl">Empat langkah <span className="italic text-roseu">menuju hari bahagia</span></h2>
             </div>
             <ol className="relative mt-8 grid grid-cols-1 gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
               <span className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-goldu/50 to-transparent lg:block" aria-hidden="true" />
@@ -235,7 +234,7 @@ export default function PortalUndangan() {
           <div className="mx-auto max-w-xl">
             <span className="segel mx-auto grid h-14 w-14 place-items-center rounded-full text-creamu"><Heart size={20} aria-hidden="true" /></span>
             <h2 className="mt-6 font-display text-3xl leading-snug md:text-4xl">Momen spesialmu berikutnya?</h2>
-            <p className="mt-3 text-creamu/75">Nama, tanggal, dan cerita — kami rangkai jadi undangan yang tak terlupakan.</p>
+            <p className="mt-3 text-creamu/75">Kirim nama, tanggal, dan ceritamu. Kami buatkan undangannya.</p>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-roseu px-8 py-4 text-sm font-bold text-creamu transition hover:scale-[1.03] active:scale-95">
               <MessageCircle size={16} aria-hidden="true" /> Pesan via WhatsApp
             </a>
@@ -247,7 +246,7 @@ export default function PortalUndangan() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
           <div className="col-span-2 sm:col-span-1">
             <p className="flex items-center gap-2 font-display text-lg text-creamu"><Logo kecil /></p>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed">Undangan digital untuk setiap momen — dibuka seperti amplop, dibagikan lewat satu tautan.</p>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed">Undangan digital untuk setiap momen, dibagikan lewat satu tautan.</p>
           </div>
           <nav aria-labelledby="kaki-jelajahi" className="text-sm">
             <p id="kaki-jelajahi" className="ornamen text-[10px] uppercase text-[#d6b77f]">Jelajahi</p>
@@ -294,7 +293,7 @@ export default function PortalUndangan() {
           </ul>
         </nav>
         <p className="mx-auto mt-8 max-w-6xl border-t border-creamu/10 pt-5 text-xs text-creamu/70 sm:text-center">
-          © {new Date().getFullYear()} PintuWeb · Galeri Undangan Digital — merangkai undangan sejak dalam pikiran.
+          © {new Date().getFullYear()} PintuWeb · Galeri Undangan Digital · {N} tema.
         </p>
       </footer>
       <BilahAksi wa={WA} />

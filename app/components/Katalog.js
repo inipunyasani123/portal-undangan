@@ -65,7 +65,7 @@ export default function Katalog() {
           </button>
         ))}
       </div>
-      <p className="sr-only" aria-live="polite">{list.length} tema ditampilkan</p>
+      <p className="sr-only" aria-live="polite">Menampilkan {list.length} tema</p>
 
       <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:mt-12 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-4">
         {list.map((t) => {
@@ -88,9 +88,9 @@ export default function Katalog() {
               </div>
               <p className="ornamen mt-4 text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.6em]">{t.kategori}</p>
               <h3 className="mt-1 font-display text-xl sm:text-2xl">{t.momen}</h3>
-              <p className="mx-auto mt-1.5 line-clamp-3 max-w-[15rem] text-[13px] leading-snug text-mutedu sm:line-clamp-none sm:text-sm sm:leading-normal">{t.description}</p>
+              <p className="mx-auto mt-1.5 max-w-[15rem] text-[13px] leading-snug text-mutedu sm:text-sm sm:leading-normal">{t.description}</p>
               {t.terjual > 0 && <p className="mt-2 text-xs font-semibold tracking-[0.15em] text-inku"><span className="text-goldu" aria-hidden="true">✦</span> {t.terjual} terjual <span className="text-goldu" aria-hidden="true">✦</span></p>}
-              <p className="mt-2 text-xs text-mutedu">mulai <strong className="font-display text-sm font-normal text-roseu">{(slug === 'corporate' ? PAKET_ACARA : PAKET).mulai}</strong> · {(slug === 'corporate' ? PAKET_ACARA : PAKET).waktu}</p>
+              <p className="mt-2 text-xs text-mutedu">{slug === 'corporate' ? 'Situs acara' : 'Undangan'} mulai <strong className="font-display text-sm font-normal text-roseu">{(slug === 'corporate' ? PAKET_ACARA : PAKET).mulai}</strong> · {(slug === 'corporate' ? PAKET_ACARA : PAKET).waktu}</p>
               <a href={waTema(`Undangan ${t.momen}`, t.url)} target="_blank" rel="noopener noreferrer" className="relative z-10 mx-auto mt-2 inline-flex min-h-10 items-center gap-1.5 rounded-full border border-roseu px-3.5 text-xs font-bold text-roseu transition hover:bg-roseu hover:text-creamu">
                 <MessageCircle size={13} aria-hidden="true" /> Pesan yang mirip<span className="sr-only"> {t.momen}</span>
               </a>

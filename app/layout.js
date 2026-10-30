@@ -7,7 +7,7 @@ const marcellus = Marcellus({ subsets: ['latin'], variable: '--font-marcellus', 
 // Merek di hasil pencarian & pratinjau tautan = PintuWeb. Jumlah tema dihitung dari data, bukan ditulis tangan.
 const URL_PORTAL = 'https://www.pintuweb.id/undangan-digital';
 const TITLE = `Contoh Undangan Digital: ${templates.length} Tema Siap Coba | PintuWeb`;
-const DESCRIPTION = `${templates.length} undangan digital berbentuk website dengan karakter berbeda: pernikahan, lamaran, khitanan, aqiqah, ulang tahun, wisuda, reuni, dan acara kantor.`;
+const DESCRIPTION = `${templates.length} contoh undangan digital berbentuk website: pernikahan, lamaran, khitanan, aqiqah, ulang tahun, wisuda, reuni, dan acara kantor. Bisa dicoba.`;
 
 // CollectionPage + daftar temanya (ItemList) + jejak. Data dari templates-data, jadi ikut bertambah sendiri.
 const __jsonld = {
