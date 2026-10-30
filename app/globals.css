@@ -47,6 +47,10 @@ main:focus { outline: none; }
   .ornamen { color: var(--color-goldu); letter-spacing: 0.6em; }
 }
 
+/* Kartu yang dituju lewat #slug: bingkai berganti rose + cincin, ±2 detik (tanpa kedip) */
+.sorot .bingkai { outline: 3px solid var(--color-roseu); outline-offset: 6px; box-shadow: 0 0 0 6px rgba(162, 80, 93, 0.14); }
+.sorot .segel { rotate: 12deg; scale: 1.15; }
+
 /* Satu tautan per kartu: ::after menutupi kartu, cincin fokusnya digambar di seluruh kartu */
 .tautan-kartu:focus-visible { outline: none; }
 .tautan-kartu:focus-visible::after { outline: 2px solid var(--color-roseu); outline-offset: 8px; }

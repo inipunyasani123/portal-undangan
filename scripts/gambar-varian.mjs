@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 
 const AKAR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FOLDER = 'public/images';
-const ASLI = /^u\d+\.webp$/;
+const ASLI = /^[up]\d+\.webp$/; // u<N> = sampul lebar, p<N> = potret ponsel
 const KUALITAS = 76;
 
 const loader = readFileSync(path.join(AKAR, 'app/gambar-loader.js'), 'utf8');

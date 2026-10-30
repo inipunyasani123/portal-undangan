@@ -27,22 +27,30 @@ export const PAKET_ACARA = {
   revisi: '2× revisi',
 };
 
-/** Galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). */
+/** Galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). Urutan = urutan menu "Galeri lain". */
 export const GALERI = [
   { path: 'landing-page', label: 'Landing Page' },
-  { path: 'link-in-bio', label: 'Link in Bio' },
-  { path: 'kontes-desain', label: 'Kontes Desain' },
-  { path: 'undangan-digital', label: 'Undangan Digital' },
-  { path: 'website-portofolio', label: 'Website Portofolio' },
-  { path: 'website-reservasi', label: 'Website Reservasi' },
-  { path: 'website-properti', label: 'Website Properti' },
-  { path: 'aplikasi-to-do', label: 'Aplikasi To-Do' },
   { path: 'toko-online', label: 'Toko Online' },
-  { path: 'menu-digital', label: 'Menu Digital' },
   { path: 'aplikasi-mobile', label: 'Aplikasi Mobile' },
+  { path: 'menu-digital', label: 'Menu Digital' },
+  { path: 'link-in-bio', label: 'Link in Bio' },
+  { path: 'kontes-desain', label: 'Konsep Desain' },
+  { path: 'undangan-digital', label: 'Undangan Digital' },
+  { path: 'website-portofolio', label: 'Portofolio Pribadi' },
+  { path: 'website-reservasi', label: 'Reservasi & Booking' },
+  { path: 'website-properti', label: 'Properti' },
+  { path: 'aplikasi-to-do', label: 'To-Do & Produktivitas' },
 ];
 
 export const GALERI_LAIN = GALERI.filter((g) => g.path !== 'undangan-digital');
+
+/** Artikel PintuWeb yang relevan untuk galeri ini ("Baca juga"). */
+export const BACA_JUGA = [
+  { href: `${PINTUWEB}/artikel/panduan-undangan-digital`, label: 'Panduan memilih undangan digital' },
+];
+
+/** Pesan WhatsApp untuk satu tema: jenis undangan + nama contoh + alamat demo. */
+export const waTema = (nama, url) => wa(`Halo PintuWeb, saya tertarik undangan digital seperti contoh ${nama} (${url}). Boleh minta info?`);
 
 /** Paket harga (lib/packages.ts), halaman layanan, dan galeri demo PintuWeb untuk kategori ini. */
 export const LANJUT = [

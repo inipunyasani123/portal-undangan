@@ -1,7 +1,10 @@
-import { Mail, ArrowDown, ArrowUpRight, MessageCircle, Heart, MailOpen, Timer, Images, MapPin, Music, MessagesSquare, Gift, Users, ChevronDown, PenLine, Send, PartyPopper } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, MessageCircle, Heart, MailOpen, Timer, Images, MapPin, Music, MessagesSquare, Gift, Users, ChevronDown, PenLine, Send, PartyPopper } from 'lucide-react';
 import Katalog from './components/Katalog';
-import { templates } from './components/templates-data';
-import { LANJUT, GALERI_LAIN, PINTUWEB, PAKET, PAKET_ACARA, WA_DISPLAY, wa } from './components/pintuweb';
+import GaleriMenu from './components/GaleriMenu';
+import BilahAksi from './components/BilahAksi';
+import { PINTU_LOGO, kecil } from './components/gambar';
+import { templates, slugOf } from './components/templates-data';
+import { LANJUT, BACA_JUGA, GALERI_LAIN, PINTUWEB, PAKET, PAKET_ACARA, WA_DISPLAY, wa } from './components/pintuweb';
 
 const WA = wa('Halo PintuWeb, saya ingin memesan undangan digital.');
 const N = templates.length;
@@ -49,7 +52,11 @@ const FAQ_LD = {
 function Logo({ kecil = false }) {
   return (
     <>
-      <span className={`segel grid shrink-0 place-items-center rounded-full text-creamu ${kecil ? 'h-7 w-7' : 'h-9 w-9'}`}><Mail size={kecil ? 12 : 15} aria-hidden="true" /></span>
+      {/* Logo pintu asli PintuWeb; di latar gelap diberi alas putih membulat */}
+      <span className={kecil ? 'grid shrink-0 place-items-center rounded-lg bg-white p-1' : 'grid shrink-0 place-items-center'}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={PINTU_LOGO} width={367} height={512} alt="" className={kecil ? 'h-7 w-auto' : 'h-8 w-auto'} />
+      </span>
       <span className="flex flex-col text-left leading-none">
         PintuWeb{' '}
         <span className={`mt-1 font-sans text-[9px] font-semibold uppercase tracking-[0.3em] ${kecil ? 'text-[#d6b77f]' : 'text-goldu'}`}>Undangan Digital</span>
@@ -64,11 +71,14 @@ export default function PortalUndangan() {
       <a href="#konten" className="lewati">Lewati ke konten</a>
       {/* Jejak: portal ini bagian dari PintuWeb */}
       <nav aria-label="Jejak" className="bg-inku text-xs text-creamu">
-        <ol className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-1.5 sm:px-6">
-          <li><a href={PINTUWEB} className="font-semibold underline-offset-4 hover:underline">PintuWeb</a></li>
-          <li aria-hidden="true" className="opacity-60">/</li>
-          <li aria-current="page">Undangan Digital</li>
-        </ol>
+        <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-1 sm:px-6">
+          <ol className="flex items-center gap-2">
+            <li><a href={PINTUWEB} className="inline-flex min-h-8 items-center font-semibold underline-offset-4 hover:underline">PintuWeb</a></li>
+            <li aria-hidden="true" className="opacity-60">/</li>
+            <li aria-current="page">Undangan Digital</li>
+          </ol>
+          <GaleriMenu />
+        </div>
       </nav>
 
       <header className="sticky top-0 z-40 border-b border-goldu/30 bg-creamu/90 backdrop-blur-xl">
@@ -83,31 +93,31 @@ export default function PortalUndangan() {
             <a href="#tanya" className="transition hover:text-roseu">Tanya Jawab</a>
           </nav>
           <a href={WA} target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-full bg-roseu px-4 py-2 text-sm font-bold text-creamu transition hover:bg-inku sm:px-5">
-            Pesan Undangan
+            Pesan undangan<span className="hidden sm:inline"> digital</span>
           </a>
         </div>
       </header>
 
       <main id="konten" tabIndex={-1}>
         {/* Hero */}
-        <section className="relative overflow-hidden px-4 pb-10 pt-10 text-center sm:px-6 sm:pb-12 sm:pt-16">
+        <section id="hero" className="relative overflow-hidden px-4 pb-8 pt-6 text-center sm:px-6 sm:pb-12 sm:pt-16">
           <span className="floaty absolute left-[8%] top-16 hidden font-display text-2xl text-goldu/50 sm:block" aria-hidden="true">✦</span>
           <span className="floaty absolute right-[10%] top-28 hidden font-display text-xl text-roseu/40 sm:block" style={{ animationDelay: '1.4s' }} aria-hidden="true">❦</span>
           <div className="relative mx-auto max-w-3xl">
             <p className="ornamen naik text-[11px] uppercase tracking-[0.35em] sm:text-xs sm:tracking-[0.6em]">— Dengan hormat mengundang —</p>
-            <h1 className="mt-5 font-display text-[2.4rem] leading-[1.12] sm:text-6xl">
+            <h1 className="mt-3 font-display text-[2rem] leading-[1.12] sm:mt-5 sm:text-6xl">
               Setiap momen berharga,<br />layak <span className="italic text-roseu">diundang dengan indah</span>.
             </h1>
-            <p className="mx-auto mt-5 max-w-xl text-mutedu">
+            <p className="mx-auto mt-5 hidden max-w-xl text-mutedu sm:block">
               {N} undangan digital dengan karakter berbeda — dari akad yang khidmat sampai pesta yang meriah. Dibuka seperti amplop, dibagikan lewat satu tautan.
             </p>
             <div className="naik naik-2">
-              <a href="#koleksi" className="bingkai mt-8 inline-flex items-center gap-2 rounded-none bg-creamu px-8 py-3.5 font-display text-sm tracking-wide text-inku transition hover:bg-goldu/10 sm:mt-9">
+              <a href="#koleksi" className="bingkai mt-4 inline-flex items-center gap-2 rounded-none bg-creamu px-8 py-3 sm:mt-9 sm:py-3.5 font-display text-sm tracking-wide text-inku transition hover:bg-goldu/10">
                 Buka Koleksi <ArrowDown size={15} aria-hidden="true" />
               </a>
 
               {/* Angka yang bisa dicek: jumlah tema dari data, waktu & masa aktif dari paket PintuWeb */}
-              <dl className="mx-auto mt-9 grid max-w-md grid-cols-3 divide-x divide-goldu/30 border-y border-goldu/25 py-4 sm:mt-10">
+              <dl className="mx-auto mt-9 hidden max-w-md grid-cols-3 divide-x divide-goldu/30 border-y border-goldu/25 py-4 sm:mt-10 sm:grid">
                 {ANGKA.map((s) => (
                   <div key={s.l} className="flex flex-col-reverse items-center px-2 sm:px-3">
                     <dt className="ornamen mt-1 text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.4em]">{s.l}</dt>
@@ -115,8 +125,25 @@ export default function PortalUndangan() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 text-sm text-mutedu">Mulai <strong className="font-display text-base font-normal text-roseu">{PAKET.mulai}</strong>, aktif {PAKET.aktifBulan} bulan tanpa biaya perpanjangan.</p>
+              <p className="mt-4 hidden text-sm text-mutedu sm:block">Mulai <strong className="font-display text-base font-normal text-roseu">{PAKET.mulai}</strong>, aktif {PAKET.aktifBulan} bulan tanpa biaya perpanjangan.</p>
             </div>
+          </div>
+          {/* Ponsel: strip tema yang bisa digeser, tepat di bawah tombol utama; tiap tema menaut ke kartunya (#slug) */}
+          <div className="mt-5 md:hidden">
+            <p className="ornamen text-[10px] uppercase tracking-[0.3em]">{N} tema · geser</p>
+            <ul className="-mx-4 mt-2.5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none]" aria-label="Pintasan tema undangan">
+              {templates.map((t, i) => (
+                <li key={t.name} className="w-[6.75rem] shrink-0 snap-start">
+                  <a href={`#${slugOf(t)}`} className="block text-center">
+                    <span className="bingkai block overflow-hidden bg-white p-1">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={kecil(t.potret, 320)} width={390} height={844} alt="" loading={i < 4 ? 'eager' : 'lazy'} decoding="async" className="aspect-[390/844] w-full object-cover object-top" />
+                    </span>
+                    <span className="mt-2 block font-display text-sm leading-tight">{t.momen}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -216,7 +243,7 @@ export default function PortalUndangan() {
         </section>
       </main>
 
-      <footer className="border-t border-creamu/10 bg-inku px-4 pb-6 pt-10 text-creamu/75 sm:px-6">
+      <footer id="kaki" className="border-t border-creamu/10 bg-inku px-4 pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-10 md:pb-6 text-creamu/75 sm:px-6">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
           <div className="col-span-2 sm:col-span-1">
             <p className="flex items-center gap-2 font-display text-lg text-creamu"><Logo kecil /></p>
@@ -251,6 +278,12 @@ export default function PortalUndangan() {
               </li>
             ))}
           </ul>
+          <p className="ornamen mt-6 text-[10px] uppercase text-[#d6b77f]">Baca juga</p>
+          <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+            {BACA_JUGA.map((b) => (
+              <li key={b.href}><a href={b.href} className="inline-block py-1 underline decoration-creamu/25 underline-offset-4 transition hover:text-creamu hover:decoration-[#d6b77f]">{b.label}</a></li>
+            ))}
+          </ul>
           <p className="ornamen mt-6 text-[10px] uppercase text-[#d6b77f]">Galeri lain</p>
           <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
             {GALERI_LAIN.map((g) => (
@@ -264,6 +297,7 @@ export default function PortalUndangan() {
           © {new Date().getFullYear()} PintuWeb · Galeri Undangan Digital — merangkai undangan sejak dalam pikiran.
         </p>
       </footer>
+      <BilahAksi wa={WA} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
     </div>
   );

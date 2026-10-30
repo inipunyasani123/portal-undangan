@@ -23,6 +23,10 @@ Katalog undangan digital. Elegan dengan bingkai ganda, lencana segel lilin, dan 
 - [Undangan Pernikahan Digital](https://undangan-wedding.pintuweb.id)
 - [Undangan Wisuda Digital](https://undangan-wisuda.pintuweb.id)
 
+## Tautan langsung per tema
+
+Setiap kartu punya `id` = slug demo; buka `/undangan-digital#<slug>` untuk menggulir dan menyorot kartunya (saringan disetel ke "Semua" bila perlu). Slug: `wedding`, `engagement`, `khitanan`, `aqiqah`, `birthday`, `wisuda`, `reuni`, `corporate`.
+
 ## Halaman
 
 `/`
