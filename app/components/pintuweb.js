@@ -1,10 +1,15 @@
+import HARGA from './harga.json';
 // Tautan ke situs utama PintuWeb. Portal ini zona terpisah (basePath /undangan-digital) di domain yang sama, jadi
 // semua tautan ke situs utama memakai URL absolut dan <a> biasa: next/link akan menempelkan basePath.
+/** Harga & kontak dibaca dari ./harga.json (salinan https://www.pintuweb.id/harga.json, diambil scripts/ambil-harga.mjs saat build). */
+const P = (slug) => HARGA.paket[slug];
+const rp = (n) => (n >= 1e6 ? `Rp${String(n / 1e6).replace('.', ',')} juta` : `Rp${n / 1e3} ribu`);
+
 export const PINTUWEB = 'https://www.pintuweb.id';
 
 /** Kontak dari PintuWeb/app/lib/site.ts (WA_NUMBER, WA_DISPLAY). Ganti di sana = ganti di sini. */
-export const WA_NUMBER = '6285190931399';
-export const WA_DISPLAY = '+62 851 9093 1399';
+export const WA_NUMBER = HARGA.wa.nomor;
+export const WA_DISPLAY = HARGA.wa.tampil;
 export const wa = (teks) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(teks)}`;
 
 /**
@@ -13,17 +18,17 @@ export const wa = (teks) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponen
  */
 export const PAKET = {
   nama: 'Undangan Digital',
-  mulai: 'Rp50 ribu',
-  sampai: 'Rp200 ribu',
-  waktu: '1 hari kerja',
+  mulai: rp(P('undangan-digital').mulai),
+  sampai: rp(P('undangan-digital').sampai),
+  waktu: P('undangan-digital').waktu,
   aktifBulan: 12,
   revisi: '1× revisi data',
 };
 export const PAKET_ACARA = {
   nama: 'Situs Acara & Undangan Custom',
-  mulai: 'Rp300 ribu',
-  sampai: 'Rp1 juta',
-  waktu: '2–4 hari kerja',
+  mulai: rp(P('situs-acara').mulai),
+  sampai: rp(P('situs-acara').sampai),
+  waktu: P('situs-acara').waktu,
   revisi: '2× revisi',
 };
 
