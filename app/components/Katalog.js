@@ -91,7 +91,7 @@ export default function Katalog() {
               <p className="mx-auto mt-1.5 max-w-[15rem] text-[13px] leading-snug text-mutedu sm:text-sm sm:leading-normal">{t.description}</p>
               {t.terjual > 0 && <p className="mt-2 text-xs font-semibold tracking-[0.15em] text-inku"><span className="text-goldu" aria-hidden="true">✦</span> {t.terjual} terjual <span className="text-goldu" aria-hidden="true">✦</span></p>}
               <p className="mt-2 text-xs text-mutedu">{slug === 'corporate' ? 'Situs acara' : 'Undangan'} mulai <strong className="font-display text-sm font-normal text-roseu">{(slug === 'corporate' ? PAKET_ACARA : PAKET).mulai}</strong> · {(slug === 'corporate' ? PAKET_ACARA : PAKET).waktu}</p>
-              <a href={waTema(`Undangan ${t.momen}`, t.url)} target="_blank" rel="noopener noreferrer" className="relative z-10 mx-auto mt-2 inline-flex min-h-10 items-center gap-1.5 rounded-full border border-roseu px-3.5 text-xs font-bold text-roseu transition hover:bg-roseu hover:text-creamu">
+              <a href={waTema(`Undangan ${t.momen}`, t.url)} target="_blank" rel="noopener noreferrer" className="relative z-10 mx-auto mb-1 mt-2 inline-flex min-h-10 items-center gap-1.5 rounded-full border border-roseu px-3.5 text-xs font-bold text-roseu transition hover:bg-roseu hover:text-creamu">
                 <MessageCircle size={13} aria-hidden="true" /> Pesan yang mirip<span className="sr-only"> {t.momen}</span>
               </a>
               {/* Satu tautan per kartu; ::after membentang menutupi seluruh kartu */}
